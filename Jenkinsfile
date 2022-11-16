@@ -3,16 +3,19 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-       echo 'Building'
+       echo 'Building'...
+         bat mvn clean
       }
     }
     stage('Test') {
       steps {
-        echo 'Tested'
+        echo 'Tested'...
+        bat mvn test
       }
       stage('Deploy') {
       steps {
-        echo 'Deployed'
+        echo 'Deployed'..
+          bat mvn compile
       }
     }
   }
