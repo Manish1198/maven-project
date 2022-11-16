@@ -1,22 +1,15 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-       echo 'Building'...
-         bat mvn clean
-      }
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
     }
-    stage('Test') {
-      steps {
-        echo 'Tested'...
-        bat mvn test
-      }
-      stage('Deploy') {
-      steps {
-        echo 'Deployed'..
-          bat mvn compile
-      }
+    post { 
+        always { 
+            echo 'I will always say Hello again!'
+        }
     }
-  }
 }
